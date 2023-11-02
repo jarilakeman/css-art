@@ -1,0 +1,55 @@
+
+
+$blue-color: blue;
+$yellow-color: yellow;
+$black-color: #000;
+
+@mixin position($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
+@mixin rounded-circle($size) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+}
+
+body {
+    @include position(25%, 38%);
+    background: $blue-color;
+}
+
+.smiley {
+    @include rounded-circle(300px);
+    position: relative;
+    background: $yellow-color;
+
+    .eyes {
+        @include rounded-circle(30px);
+        position: absolute;
+        top: 30%;
+
+        &.eye-left {
+            left: 25%;
+            background: $black-color;
+        }
+
+        &.eye-right {
+            right: 25%;
+            background: $black-color;
+        }
+    }
+
+    .mouth {
+        width: 100px;
+        height: 60px;
+        background: $black-color;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        position: absolute;
+        bottom: 30%;
+        left: 35%;
+    }
+}
